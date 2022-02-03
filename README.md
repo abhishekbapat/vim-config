@@ -28,7 +28,7 @@ yarn and nodejs
 ### Run following for yarn
 `curl --compressed -o- -L https://yarnpkg.com/install.sh | bash` 
 
-### Navigate to coc.nvim instal vim bundle, and run:
+### Navigate to coc.nvim inside vim bundle, and run:
 `yarn install`
 
 ### Copy the .coc.vim file from repo to ~ directory.
