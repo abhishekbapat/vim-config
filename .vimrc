@@ -1,6 +1,3 @@
-execute pathogen#infect()
-
-
 "------------------
 " Syntax and indent
 "------------------
@@ -59,7 +56,7 @@ set smartcase
 " tab completion for files/buffers
 set wildmode=longest,list
 set wildmenu
-" set mouse+=a " enable mouse mode (scrolling, selection, etc)
+set mouse+=a " enable mouse mode (scrolling, selection, etc)
 " if &term =~ '^screen'
 "    " tmux knows the extended mouse mode
 "    set ttymouse=xterm2
@@ -86,7 +83,7 @@ set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄸe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡ
 " Misc configurations
 "--------------------
 
-let ru_newbie=1
+let ru_newbie=0
 if ru_newbie
     " Try to prevent bad habits like using the arrow keys for movement. This is
     " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -171,6 +168,21 @@ nnoremap <silent> <C-k> :bnext<CR>
 "---------------------
 " Plugin configuration
 "---------------------
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim' "Vundle manager, required
+Plugin 'morhetz/gruvbox' "Colors
+Plugin 'valloric/youcompleteme' "C/C++ and Python code completion
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()
+filetype plugin indent on
 
 "---------------------
 " color scheme
@@ -184,12 +196,7 @@ let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
 set background=dark
 
-"
-" coc.nvim
-let g:coc_disable_startup_warning = 1 " for old vim
-autocmd BufNew,BufEnter *.c,*.C,*.cpp,*.cxx,*.h,*.hpp,*.tpp,*.S,*.s,*.asm
-                            \ execute "silent! CocEnable"
-autocmd BufLeave        *.c,*.C,*.cpp,*.cxx,*.h,*.hpp,*.tpp,*.S,*.s,*.asm
-                            \ execute "silent! CocDisable"
-source ~/.coc.vim " loading (almost) default coc configuration
-
+"---------------------
+" bottom bar
+"---------------------
+let g:airline_theme='luna'
